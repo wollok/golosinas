@@ -53,7 +53,7 @@ Crear el objeto `mariano` con la capacidad de comprar golosinas, hacer cosas con
 * `desechar(unaGolosina)` : desecha la golosina escogida de la bolsa de golosinas.
 * `probarGolosinas()` : le da un mordisco a todas las golosinas dentro de la bolsa de golosinas compradas.
 * `hayGolosinaSinTACC()` : indica si hay al menos una golosina sin gluten en la bolsa de golosinas compradas.
-* `preciosCuidados()` : indica si todas las golosinas compradas tienen un precio menor o igual a 10 pesos.
+* `preciosCuidados()` : se cumple cuando cada una de las golosinas compradas tienen un precio menor o igual a 10 pesos.
 * `golosinaDeSabor(unSabor)` : devuelve _la primer golosina_ que encuentra en la bolsa del sabor escogido.
 * `golosinasDeSabor(unSabor)` : devuelve _las golosinas_ que encuentre dentro de la bolsa del sabor escogido.
 * `sabores()` : que devuelve los sabores de las golosinas de la bolsa, idealmente sin repetidos. <br> 
