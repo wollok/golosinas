@@ -20,17 +20,21 @@ object mariano {
 		return golosinas.all({ _golosina => _golosina.precio() < 10}) 
 	}
 	
+	
+	
 	method golosinaDeSabor(_sabor) {
-		return golosinas.find( { _golosina => _golosina.gusto() == _sabor} )
+		return golosinas.find({ golosina => golosina.gusto() == _sabor })
 	}
 	
 	method golosinasDeSabor(_sabor) {
-		return golosinas.filter( { _golosina => _golosina.gusto() == _sabor} )
+		return golosinas.filter({ golosina => golosina.gusto() == _sabor })
 	}
 	
 	method sabores() {
-		return golosinas.map( { _golosina => _golosina.gusto() } ).asSet()
+		return golosinas.map({ golosina => golosina.gusto() }).asSet()
 	}
+
+
 
 	method golosinaMasCara() {
 		return golosinas.max( { _golosina => _golosina.precio() } )
@@ -111,7 +115,14 @@ object oblea {
 	method precio() { return 5 }
 	method peso() { return peso }
 	method mordisco() {
-		peso = peso * (if (peso > 70) 0.5 else 0.75) 
+		if (peso >= 70) {
+			peso = peso * 0.5
+		} else { 
+			// forma 1 - pienso con cuánto me quedo
+			peso = peso * 0.75
+			// forma 2 - lo que tenía *menos* lo que pierdo
+			peso = peso - (peso * 0.25)
+		}
 	}	
 	method gusto() { return "vainilla" }
 	method libreGluten() { return false }
@@ -136,16 +147,57 @@ object golosinaBaniada {
 
 object tutifrutti {
 	var libreDeGluten
-	var gustos= ["frutilla", "chocolate", "naranja"]
-	var mordiscos = 0
+	// para solucion 1
+	var gusto = "frutilla"
+	// para soluciones 2 y 3
+	var gustos = ["frutilla", "chocolate", "naranja"]
+	var gustoActual = 0
 	
+	// solucion 1
+	method mordisco1() { 
+		if (gusto == "frutilla") {
+			gusto = "chocolate"
+		} else if (gusto == "chocolate") {
+			gusto = "naranja"
+		} else { // es "naranja"
+			gusto = "frutilla"		
+		}
+	}	
+	method gusto1() { return gusto }
+	
+	// solucion 2
+	method mordisco2() { 
+		gustoActual += 1
+		if (gustoActual == 3) { gustoActual = 0 }
+	}	
+	method gusto2() { return gustos.get(gustoActual) }
+	
+	// solucion 3
+	method mordisco3() { 
+		gustoActual += 1
+	}	
+	method gusto3() { return gustos.get(gustoActual % 3) }	
+
 	method libreGluten(valor) { libreDeGluten = valor }
 	method precio() { return (if(self.libreGluten()) 7 else 10) }
 	method peso() { return 5 }
-	method mordisco() { mordiscos = mordiscos + 1 }	
-	method gusto() {
-		return gustos.get(mordiscos % gustos.size())
-	}
 	method libreGluten() { return libreDeGluten }	
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
