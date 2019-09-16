@@ -51,6 +51,8 @@ En cada mordisco cambia el sabor, pasa de frutilla a chocolate, de ahí a naranj
 Crear el objeto `mariano` con la capacidad de comprar golosinas, hacer cosas con las golosinas que tiene, y responder a consultas sobre las mismas. En particular, debe entender todos los mensajes que siguen:
 * `comprar(unaGolosina)` : agrega una golosina a la bolsa de golosinas compradas.
 * `desechar(unaGolosina)` : desecha la golosina escogida de la bolsa de golosinas.
+* `cantidadDeGolosinas()` : devuelve la cantidad de golosinas compradas.
+* `tieneLaGolosina(unaGolosina)` : pregunta si Mariano ya tiene la golosina que se quiere comprar en la bolsa de golosinas.
 * `probarGolosinas()` : le da un mordisco a todas las golosinas dentro de la bolsa de golosinas compradas.
 * `hayGolosinaSinTACC()` : indica si hay al menos una golosina sin gluten en la bolsa de golosinas compradas.
 * `preciosCuidados()` : se cumple cuando cada una de las golosinas compradas tienen un precio menor o igual a 10 pesos.
