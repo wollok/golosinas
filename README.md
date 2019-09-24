@@ -14,3 +14,8 @@ Vamos a realizar este modelo en dos etapas.
 Describimos en archivos separados los enunciados de cada etapa.
 
 
+## Los autores
+
+Este ejercicio nace de una idea original de **Lucas Silvestri**, quien redactó la primera versión.
+
+Incluye correcciones y agregados de Leonardo Gassman, Carlos Lombardi, Federico Aloi, Nahuel Palumbo y Liza Chambi.
